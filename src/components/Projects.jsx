@@ -24,7 +24,7 @@ const projectsData = [
   },
   {
     title: "SpreadIt",
-    imgSrc: "images/spreadit.png",
+    imgSrc: "images/SpreadIt.png",
     description:
       "Led a team of four in building a gamified social platform for sandwich ratings using React and PostgreSQL. Reduced page load time by 20% and ensured the backend handled over 1,000 daily interactions with role-based access control.",
     tags: ["Agile", "React", "PostgreSQL"],

@@ -19,7 +19,7 @@ const certifications = [
   {
     name: "Jira Fundamentals Badge",
     date: "May 2024",
-    img: "/certs/jira.png"
+    img: "/certs/Jira.png"
   }
 ];
 
