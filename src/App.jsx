@@ -7,12 +7,19 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
 import './index.css';
+import ParticlesBackground from './components/ParticleBackground';
+import CustomCursor from './components/CustomCursor';
+
 
 function App() {
   return (
     <>
+    <CustomCursor />
       <Sidebar />
       <main className="main-content">
+        <div className="particles-container">
+          <ParticlesBackground />
+        </div>
         <Hero />
         <About />
         <Skills />

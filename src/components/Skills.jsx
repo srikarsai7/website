@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  { useMemo } from 'react';
 // Import necessary icons
 import {
   SiPython, SiCplusplus, SiJavascript, SiHtml5, SiLua, SiLinux, SiGit, 
@@ -9,8 +9,9 @@ import {
   FaGamepad, FaLock, FaKey, FaLeaf , FaJava
 } from 'react-icons/fa';
 import { VscCode } from "react-icons/vsc";
+import SkillCloud from './SkillCloud';
 
-// Your original skills data, now mapped to the new structure with icons
+// Your skills data with icons
 const skillsData = {
   Languages: [
     { name: "Java", icon: <FaJava color="#007396" /> },
@@ -29,7 +30,7 @@ const skillsData = {
     { name: "Intrusion Detection", icon: <FaShieldAlt color="#F39C12" /> },
     { name: "NIST Framework", icon: <FaBook color="#D2B48C" /> },
   ],
-  Frameworks: [
+  "Tools and Frameworks": [
     { name: "Git", icon: <SiGit color="#F05032" /> },
     { name: "React.js", icon: <SiReact color="#61DAFB" /> },
     { name: "Next.js", icon: <SiNextdotjs /> },
@@ -48,12 +49,20 @@ const skillsData = {
 };
 
 const Skills = () => {
+  // Revert this to a simple array of strings
+  const allSkills = useMemo(() => 
+    Object.values(skillsData).flat().map(skill => skill.name), 
+  []);
+
   return (
     <section id="skills">
       <div className="skills-header">
         <VscCode className="skills-title-icon" />
         <h2>Skills</h2>
       </div>
+
+      {/* Pass the simple array of strings to the SkillCloud */}
+      <SkillCloud skills={allSkills} />
 
       <div className="skills-grid">
         {Object.entries(skillsData).map(([category, skills]) => (
@@ -73,8 +82,8 @@ const Skills = () => {
 
       <div className="learning-note-container">
         <div className="learning-note">
-          <FaLeaf />
-          <span>… always learning and expanding my tool-stack.</span>
+            <FaLeaf />
+            <span>… always learning and expanding my tool-stack.</span>
         </div>
       </div>
     </section>

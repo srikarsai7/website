@@ -37,8 +37,7 @@ const About = () => {
               Hello, I'm Srikar
             </p>
             <p className="about-description">
-              I'm currently a Computer Science student at Cal Poly, San Luis Obispo with a passion for full-stack development, cybersecurity and game development. My experience spans from building scalable web applications and APIs to developing a Unity-based Capture The Flag platform. I'm always eager to learn and grow as a developer. Check out my resume below to see the projects and positions I've held.
-            </p>
+                I’m a Computer Science student at Cal Poly, San Luis Obispo, with a passion for building useful, engaging, and scalable tech. I’ve worked on everything from modernizing a chess app and developing AI-powered feedback systems to creating a Unity-based Capture The Flag game for a national cybersecurity event. I enjoy solving real problems—whether it’s improving load times, helping users stay engaged, or launching tools that actually make a difference. I'm always looking to learn, grow, and contribute to meaningful projects. Feel free to check out my resume to see what I’ve been up to!            </p>
           </div>
         </div>
         <div className="about-certifications">

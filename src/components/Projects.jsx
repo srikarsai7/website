@@ -1,8 +1,6 @@
 import React from 'react';
-// Icons for the header and project links
 import { FaFolderOpen, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
-// Project data updated with your new projects
 const projectsData = [
   {
     title: "Obscure or Not",
@@ -28,7 +26,7 @@ const projectsData = [
     description:
       "Led a team of four in building a gamified social platform for sandwich ratings using React and PostgreSQL. Reduced page load time by 20% and ensured the backend handled over 1,000 daily interactions with role-based access control.",
     tags: ["Agile", "React", "PostgreSQL"],
-    codeLink: "https://github.com/CSC307Winter2025/SpreadIt",
+    codeLink: "#",
     demoLink: "#"
   },
 ];
@@ -62,9 +60,11 @@ const Projects = () => {
               <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
                 <FaGithub /> Code
               </a>
-              <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
-                <FaExternalLinkAlt /> Demo
-              </a>
+              {project.demoLink !== "#" && (
+                <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                  <FaExternalLinkAlt /> Demo
+                </a>
+              )}
             </div>
           </div>
         ))}
