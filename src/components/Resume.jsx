@@ -101,7 +101,6 @@ const Resume = () => {
               <span>{resumeData.education.dates}</span>
             </div>
             <p>{resumeData.education.degree}</p>
-            <p><strong>GPA:</strong> {resumeData.education.gpa}</p>
           </div>
         </div>
 

@@ -24,8 +24,8 @@ const SkillCloud = ({ skills }) => {
         radius={250}
         fullWidth
         fullHeight
-        maxSpeed={0.75}
         grayscale={false}
+        blur={false}
       />
     </div>
   );

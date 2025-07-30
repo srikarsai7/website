@@ -191,7 +191,6 @@ section:last-of-type {
     display: flex;
     position: relative;
     overflow: hidden;
-    width: calc(100vw - 200px); /* Subtract sidebar width */
     margin-left: 0;          /* Push hero to the right of sidebar */
 }
 
@@ -263,7 +262,7 @@ section:last-of-type {
   margin: 0 0 10px 0;
   color: #fff;
   text-shadow: 0 0 10px var(--primary-color), 0;
-  align-self: flex-start;
+  align-self: left;
 }
 
 .hero h2 {
@@ -311,7 +310,7 @@ section:last-of-type {
     display: flex;
     gap: 18px; /* Space between buttons */
     margin-top: 18px;
-    margin-left: -80;
+    margin-left: 0;
 }
 
 .btn {
