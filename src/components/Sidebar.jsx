@@ -12,9 +12,9 @@ const Sidebar = () => {
         <a href="#resume" className="nav-link"><i className="fas fa-file-alt"></i><span>Resume</span></a>
       </div>
       <div className="sidebar-bottom">
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="nav-link"><i className="fab fa-github"></i></a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="nav-link"><i className="fab fa-linkedin"></i></a>
-        <a href="mailto:email@example.com" className="nav-link"><i className="fas fa-envelope"></i></a>
+        <a href="https://github.com/srikarsai7" target="_blank" rel="noopener noreferrer" className="nav-link"><i className="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/srikar-amirneni/" target="_blank" rel="noopener noreferrer" className="nav-link"><i className="fab fa-linkedin"></i></a>
+        <a href="mailto:samirnen@calpoly.edu" className="nav-link"><i className="fas fa-envelope"></i></a>
       </div>
     </nav>
   );

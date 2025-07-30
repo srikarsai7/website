@@ -1,31 +1,56 @@
 import React from 'react';
 
 const certifications = [
-  "Google Cybersecurity Essentials",
-  "IBM Cloud Foundations",
-  "Splunk Core",
-  "Darktrace Certified (SME)",
-  "Augmented Reality & Cyber Foundations"
+  {
+    name: "Google Cybersecurity Certificate",
+    date: "June 2025",
+    img: "/certs/google.jpg"
+  },
+  {
+    name: "AWS Cloud Practitioner Essentials",
+    date: "Completed 2023",
+    img: "/certs/aws.jpg"
+  },
+  {
+    name: "Harvard CS50 & CS50 AI",
+    date: "June 2021 and April 2024",
+    img: "/certs/harvard.png"
+  },
+  {
+    name: "Jira Fundamentals Badge",
+    date: "May 2024",
+    img: "/certs/jira.png"
+  }
 ];
 
 const About = () => {
   return (
-    <section id="about">
-      <h2 className="section-title">About Me</h2>
-      <div className="about-container">
-        <div className="about-text">
-          <h3>Hello, I'm Srikar</h3>
-          <p>I'm a third-year Computer Engineering student at Cal Poly, San Luis Obispo with a fervent interest in full-stack development and exploring the intersectionality of cybersecurity.</p>
-          <p>Through projects ranging from developing robust web applications to delving into the intricacies of chess AI, I've cultivated a diverse skill set. I'm always eager to learn and grow as a developer, find my resume below to see my work.</p>
-          <p>Fun Fact: I've memorized the first 1000 digits of Pi.</p>
+    <section id="about" className="about-container">
+      <div className="about-flex">
+        <div className="about-main">
+          <div className="about-header">
+            <i className="fas fa-user profile-icon"></i>
+            <h2 className="section-title">About Me</h2>
+          </div>
+          <div className="about-card">
+            <p className="about-greeting">
+              Hello, I'm Srikar
+            </p>
+            <p className="about-description">
+              I'm currently a Computer Science student at Cal Poly, San Luis Obispo with a passion for full-stack development, cybersecurity and game development. My experience spans from building scalable web applications and APIs to developing a Unity-based Capture The Flag platform. I'm always eager to learn and grow as a developer. Check out my resume below to see the projects and positions I've held.
+            </p>
+          </div>
         </div>
-        <div className="certifications">
-          <h3>Certifications</h3>
-          <ul>
-            {certifications.map((cert, index) => (
-              <li key={index}>
-                <img src="https://d35aaqx5ub95lt.cloudfront.net/images/path/google-certified-professional-cloud-architect.svg" alt="Cert Logo" />
-                {cert}
+        <div className="about-certifications">
+          <h3 className="cert-title">Certifications</h3>
+          <ul className="cert-list">
+            {certifications.map(cert => (
+              <li className="cert-card" key={cert.name}>
+                <img className="cert-img" src={cert.img} alt={cert.name} />
+                <div className="cert-info">
+                  <span className="cert-name">{cert.name}</span>
+                  <span className="cert-date">{cert.date}</span>
+                </div>
               </li>
             ))}
           </ul>

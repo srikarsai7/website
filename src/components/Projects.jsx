@@ -1,48 +1,70 @@
 import React from 'react';
+// Icons for the header and project links
+import { FaFolderOpen, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
+// Project data updated with your new projects
 const projectsData = [
   {
-    title: "Splunk",
-    imgSrc: "https://via.placeholder.com/400x250/1a1a1a/0f0?text=Splunk",
-    description: "Created a chess AI using the minimax algorithm with alpha-beta pruning. Designed a full-stack application to visualize game trees.",
-    tags: ["Python", "React", "Splunk"],
-    codeLink: "#",
-    demoLink: "#"
+    title: "Obscure or Not",
+    imgSrc: "images/obscureornot.png",
+    description:
+      "A 'Higher or Lower' style game where players guess which topic is searched more on Google Trends. Built with Next.js, it fetches data from the Unsplash and Google Trends APIs.",
+    tags: ["Next.js", "React", "Google Trends API", "Unsplash API"],
+    codeLink: "https://github.com/srikarsai7/obscureornot",
+    demoLink: "https://obscureornot.vercel.app/"
   },
   {
-    title: "Chess AI",
-    imgSrc: "https://via.placeholder.com/400x250/1a1a1a/0f0?text=Chess+AI",
-    description: "Engineered a high-performance chess AI that explores thousands of moves per second to find the optimal path.",
-    tags: ["C++", "Data Structures", "Algorithms"],
-    codeLink: "#",
-    demoLink: "#"
+    title: "Escape from the Labyrinth",
+    imgSrc: "images/escape.png",
+    description:
+      "A 2D maze game where the player must find the exit before being caught by a Minotaur. Features a pathfinding AI for the enemy, dynamic maze generation, and audio cues.",
+    tags: ["React", "Next.js", "Canvas", "TypeScript", "Game Dev"],
+    codeLink: "https://github.com/srikarsai7/maze-game-2",
+    demoLink: "https://maze-game-xi.vercel.app/"
   },
   {
-    title: "CTF Writeups",
-    imgSrc: "https://via.placeholder.com/400x250/1a1a1a/0f0?text=CTF+Writeups",
-    description: "A collection of my writeups from various Capture The Flag (CTF) competitions, detailing my approach to solving cybersecurity challenges.",
-    tags: ["Cybersec", "Pwntools", "Ghidra"],
-    codeLink: "#",
+    title: "SpreadIt",
+    imgSrc: "images/spreadit.png",
+    description:
+      "Led a team of four in building a gamified social platform for sandwich ratings using React and PostgreSQL. Reduced page load time by 20% and ensured the backend handled over 1,000 daily interactions with role-based access control.",
+    tags: ["Agile", "React", "PostgreSQL"],
+    codeLink: "https://github.com/CSC307Winter2025/SpreadIt",
     demoLink: "#"
-  }
+  },
 ];
 
 const Projects = () => {
   return (
     <section id="projects">
-      <h2 className="section-title">Projects</h2>
+      <div className="section-header">
+        <FaFolderOpen className="section-icon" />
+        <h2>Projects</h2>
+      </div>
+
       <div className="projects-grid">
-        {projectsData.map((project, index) => (
-          <div className="project-card" key={index}>
-            <img src={project.imgSrc} alt={`${project.title} Project`} />
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <div className="project-tags">
-              {project.tags.map(tag => <span key={tag}>{tag}</span>)}
+        {projectsData.map((project) => (
+          <div key={project.title} className="project-card">
+            <div className="project-image">
+              <img src={project.imgSrc} alt={`${project.title} screenshot`} />
             </div>
-            <div className="project-links">
-              <a href={project.codeLink} target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i> Code</a>
-              <a href={project.demoLink} target="_blank" rel="noopener noreferrer"><i className="fas fa-external-link-alt"></i> Demo</a>
+            
+            <div className="project-content">
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <div className="project-tags">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className="project-footer">
+              <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
+                <FaGithub /> Code
+              </a>
+              <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                <FaExternalLinkAlt /> Demo
+              </a>
             </div>
           </div>
         ))}
