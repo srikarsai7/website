@@ -41,8 +41,7 @@ const About = () => {
           </div>
 
           <p className="hero__body">
-            I’m a Computer Science student at Cal Poly, San Luis Obispo, passionate about building tech that’s useful, scalable, and fun to use. From revamping a chess app and creating AI-driven feedback systems to designing a Unity-based Capture The Flag game for a national cybersecurity event, I love taking on projects that blend creativity with real-world impact. Outside of CS, I enjoy playing basketball and cricket, and I’m a big fan of Formula 1. I'm always up for solving tough problems that matter.
-          </p>
+I’m a CS student at Cal Poly focused on building usable, reliable software. Recent work includes modernizing a chess app, shipping AI-driven feedback features, and developing a Unity CTF for a national cybersecurity event. I gravitate toward clear goals, fast iteration, and building things that help users.</p>
 
             <div className="strip" role="listitem"><span className="k">Now</span> Working on fileless-malware detection and a RAG-powered chess tool that gives move-by-move feedback.</div>
             <div className="strip" role="listitem"><span className="k k--alt">Next</span> Looking for software engineering roles where I can grow, contribute, and build meaningful products.</div>

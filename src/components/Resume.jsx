@@ -74,7 +74,7 @@ const Resume = () => {
       </div>
 
       <div className="resume-actions">
-        <a href="/se (1).pdf" className="btn" download>
+        <a href="/Srikar,Amirneni-Resume.pdf" className="btn" download>
           Download Resume (PDF)
         </a>
       </div>

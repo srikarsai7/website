@@ -48,7 +48,7 @@ const Hero = () => {
           <a href="https://www.linkedin.com/in/srikar-amirneni/" className="btn btn-secondary">
             <i className="fab fa-linkedin"></i> LinkedIn
           </a>
-          <a href="Srikar,Amirneni-Resume.pdf" download="Srikar_Amirneni_Resume.pdf" className="btn btn-secondary">
+          <a href="Srikar,Amirneni-Resume.pdf" className="btn btn-secondary">
             <i className="fas fa-file-download"></i> Resume
           </a>
         </div>
