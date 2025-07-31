@@ -57,9 +57,10 @@ const Projects = () => {
             </div>
 
             <div className="project-footer">
-              <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
-                <FaGithub /> Code
-              </a>
+              {project.codeLink !== "#" && (
+                <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                  <FaExternalLinkAlt /> Code
+                </a>)}
               {project.demoLink !== "#" && (
                 <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
                   <FaExternalLinkAlt /> Demo
