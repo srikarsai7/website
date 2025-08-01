@@ -1551,3 +1551,64 @@ main, .main-content, .hero, section, .sidebar{
     padding-right: 0;
   }
 }
+
+/* ===== Hero mobile fixes: keep CTAs visible + shrink subtitle ===== */
+:root{
+  --mobile-nav-h: 60px; /* your bottom bar height on mobile */
+}
+
+@media (max-width: 768px){
+  /* Give the page scroll room so fixed bottom nav doesn't cover content */
+  html{
+    scroll-padding-bottom: calc(env(safe-area-inset-bottom) + var(--mobile-nav-h) + 12px);
+  }
+
+  /* Extra bottom padding in the hero to clear Safari toolbar + bottom nav */
+  .hero,
+  .hero-content{
+    padding-bottom: calc(24px + env(safe-area-inset-bottom) + var(--mobile-nav-h));
+  }
+
+  /* Let buttons wrap and keep comfortable tap targets */
+  .hero-buttons{
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .btn{
+    padding: 12px 20px;    /* slightly smaller to fit */
+    font-size: 0.95rem;
+  }
+
+  /* Tame the big green subtitle */
+  .hero h2{
+    font-size: 1.1rem;
+    line-height: 1.35;
+    min-width: 60ch; /* ensure it doesn't shrink too small */
+    margin-bottom: 16px;
+  }
+}
+
+/* Even tighter on very small phones */
+@media (max-width: 430px){
+  .hero h1{
+    font-size: clamp(1.9rem, 8vw, 2.2rem);
+    letter-spacing: -0.02em;
+  }
+  .hero h2{
+    font-size: 1.1rem;
+    max-width: 24ch;
+  }
+  .hero h2{
+    font-size: clamp(0.5rem, 2vw, 0.75rem);
+    line-height: 1.35;
+    margin-bottom: 16px;
+  }
+}
+
+/* Ensure the bottom bar height matches the variable on mobile */
+@media (max-width: 768px){
+  .sidebar{
+    height: var(--mobile-nav-h);
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+}
