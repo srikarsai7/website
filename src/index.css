@@ -1320,3 +1320,122 @@ section:last-of-type {
   transform: translateY(-5px);
   box-shadow: 0 0 20px 4px rgba(25, 255, 106, 0.6);
 }
+
+/* ===========================
+   FINAL RESPONSIVE / MOBILE PATCH
+   Paste this block at the very end of your stylesheet
+   =========================== */
+
+/* 1) Robust viewport sizing on phones */
+.hero{
+  min-height: 100vh;     /* fallback */
+  min-height: 100dvh;    /* modern mobile */
+}
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari safe fallback */
+  .hero{ min-height: -webkit-fill-available; }
+}
+
+/* 2) Touch-friendly: disable custom cursor & hover-only flourishes */
+@media (hover: none), (pointer: coarse){
+  *{ cursor: auto !important; }
+  .cursor-dot, .cursor-outline{ display: none !important; }
+
+  /* neutralize hover transforms/jitter on touch */
+  .timeline li:hover .event,
+  .timeline li:hover .dot,
+  .skill-category ul:hover li,
+  .skill-category ul:hover li:hover,
+  .project-card:hover,
+  .timeline-content:hover{
+    transform: none !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+  }
+
+  /* performance trims */
+  .glitch-text::before,
+  .glitch-text::after{ animation: none !important; }
+  .skill-icon{ animation: none !important; }
+  .particles-container{ display: none !important; }
+}
+
+/* 3) Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
+
+/* 4) Sidebar: mobile bottom bar + safe-area padding */
+@media (max-width: 768px){
+  .sidebar{
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+}
+/* Backdrop blur fallback for older Android */
+.sidebar{
+  background-color: rgba(25,20,20,.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+@supports not (backdrop-filter: blur(10px)){
+  .sidebar{ background-color: rgba(25,20,20,.95); }
+}
+
+/* 5) Collapse complex grids earlier for phones */
+@media (max-width: 900px){
+  .projects-grid{ grid-template-columns: 1fr; }
+}
+@media (max-width: 600px){
+  .hero-content{ padding-left: 20px; padding-right: 20px; }
+}
+
+/* 6) Timeline: force single-rail, full-width layout on mobile */
+@media (max-width: 768px){
+  .timeline-container{ padding-left: 10px; }
+  .timeline-item{
+    width: 100%;
+    left: 0 !important;
+    padding: 10px 16px 10px 56px; /* room for icon/rail */
+  }
+  .timeline-icon{
+    left: 24px !important;
+    transform: translateX(0) !important;
+  }
+  /* If using a centered SVG line, ensure it stretches with content */
+  .timeline-svg{
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+}
+
+/* 7) Certs rail & cards: finger-friendly scrolling/targets */
+.certs__rail{
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.cert-card, .project-card, .circle{
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 8) Tighten fluid type for very small devices */
+@media (max-width: 380px){
+  :root{
+    --step-4: clamp(2rem, 5vw, 2.5rem);
+    --step-3: clamp(1.6rem, 4.5vw, 2rem);
+  }
+  .hero h2{ margin-bottom: 18px; }
+}
+
+/* 9) Ensure sections don’t feel cramped on narrow screens */
+@media (max-width: 480px){
+  section{ padding: 28px 14px !important; }
+}
+
+/* 10) Safety: prevent oversized box-shadows/transforms causing layout shift */
+@media (max-width: 768px){
+  .project-card,
+  .timeline .event{
+    will-change: auto;
+    box-shadow: none;
+  }
+}
