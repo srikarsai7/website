@@ -3,6 +3,15 @@ import { FaFolderOpen, FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const projectsData = [
   {
+    title: "Ice Breaker",
+    imgSrc: "images/icebreaker.png",
+    description:
+      "An AI-powered app that finds a person's LinkedIn profile and generates a concise summary, interesting facts, and creative conversation starters. Built with Python, Flask, LangChain, and React.",
+    tags: ["Python", "LangChain", "Flask", "React", "AI"],
+    codeLink: "https://github.com/srikarsai7/ice_breaker",
+    demoLink: "https://ice-breaker-aqmo.onrender.com/"
+  },
+  {
     title: "Obscure or Not",
     imgSrc: "images/obscureornot.png",
     description:
@@ -58,9 +67,10 @@ const Projects = () => {
 
             <div className="project-footer">
               {project.codeLink !== "#" && (
-                <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
-                  <FaExternalLinkAlt /> Code
-                </a>)}
+                <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
+                  <FaGithub /> Code
+                </a>
+              )}
               {project.demoLink !== "#" && (
                 <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
                   <FaExternalLinkAlt /> Demo

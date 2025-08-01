@@ -1079,7 +1079,7 @@ section:last-of-type {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr); 
   gap: clamp(1rem, 2vw, 2rem);
   max-width: 1200px;
   margin: 0 auto;
@@ -1166,19 +1166,6 @@ section:last-of-type {
 
 .project-footer a:hover {
   color: var(--primary-color);
-}
-
-/* Responsive Grid Layout */
-@media (min-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 .particles-container {
