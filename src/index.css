@@ -1352,12 +1352,6 @@ section:last-of-type {
     opacity: 1 !important;
     box-shadow: none !important;
   }
-
-  /* performance trims */
-  .glitch-text::before,
-  .glitch-text::after{ animation: none !important; }
-  .skill-icon{ animation: none !important; }
-  .particles-container{ display: none !important; }
 }
 
 /* 3) Respect reduced motion preference */
@@ -1390,21 +1384,94 @@ section:last-of-type {
 }
 
 /* 6) Timeline: force single-rail, full-width layout on mobile */
+/* ===== Timeline: force left rail on mobile, hide centered SVG ===== */
 @media (max-width: 768px){
-  .timeline-container{ padding-left: 10px; }
+  /* Tunables */
+  :root{
+    --rail-x: 24px;          /* distance from left edge to rail */
+    --rail-w: 2px;           /* rail thickness */
+    --rail-gap: 32px;        /* space between rail and card content */
+    --icon-size: 40px;       /* .timeline-icon size */
+    --rail-base: rgba(255,255,255,.14); /* base rail color */
+    --rail-fill: rgb(29,185,84);        /* fill color */
+  }
+
+  /* Hide any centered vertical SVG you used on desktop */
+
+  /* Ensure timeline container and list create a proper stacking context */
+  .timeline-container{ position: relative; }
+  .timeline ul{
+    position: relative;
+    margin: 0;
+    padding-left: 0; /* we control left padding via item padding below */
+  }
+
+  /* Base rail (left aligned) */
+  .timeline ul::before{
+    content:"";
+    position:absolute;
+    left: var(--rail-x);
+    top: 0;
+    bottom: 0;
+    width: var(--rail-w);
+    background: linear-gradient(180deg, var(--rail-base), transparent 70%);
+    border-radius: 2px;
+    z-index: 0; /* behind content and fill */
+  }
+
+  /* Fill rail that grows with scroll (height set by JS via CSS var) */
+  .timeline ul::after{
+    content:"";
+    position:absolute;
+    left: var(--rail-x);
+    top: 0;
+    width: var(--rail-w);
+    height: var(--rail-fill-h, 0%); /* JS updates this variable */
+    background: var(--rail-fill);
+    box-shadow: 0 0 12px rgba(29,185,84,.45);
+    border-radius: 2px;
+    z-index: 1;
+    transform-origin: top;
+    will-change: height;
+    pointer-events: none;
+  }
+
+  /* Items are full width with padding that clears the rail + gap */
   .timeline-item{
+    position: relative;
     width: 100%;
     left: 0 !important;
-    padding: 10px 16px 10px 56px; /* room for icon/rail */
+    padding: 10px 16px 10px calc(var(--rail-x) + var(--rail-gap));
+    z-index: 2; /* above rails */
   }
+
+  /* Icon sits centered on the rail regardless of its size */
   .timeline-icon{
-    left: 24px !important;
-    transform: translateX(0) !important;
+    position: absolute;
+    top: 45px; /* keep your existing vertical offset */
+    left: calc(var(--rail-x) + var(--rail-w) / 2) !important;
+    transform: translateX(-50%) !important; /* center over the rail */
+    width: var(--icon-size);
+    height: var(--icon-size);
+    z-index: 3; /* above fill */
   }
-  /* If using a centered SVG line, ensure it stretches with content */
-  .timeline-svg{
-    height: 100% !important;
-    min-height: 100% !important;
+
+  .timeline-content{ position: relative; }
+
+  /* Keep badge in the corner, don't let it wrap */
+  .timeline-badge{
+    position: absolute;
+    top: 16px;
+    right: 12px;
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  /* Reserve room so the title doesn't flow under the badge */
+  .timeline-content h3{
+    padding-right: 120px;    /* adjust if your badge gets wider */
+    line-height: 1.25;
+    text-wrap: balance;      /* nicer multi-line wrapping (Safari/Chromium) */
   }
 }
 
@@ -1437,5 +1504,50 @@ section:last-of-type {
   .timeline .event{
     will-change: auto;
     box-shadow: none;
+  }
+}
+
+
+html, body{
+  background: transparent !important;
+}
+
+.particles-container{
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #000;
+}
+.particles-container canvas{
+  background: #000 !important;
+}
+
+main, .main-content, .hero, section, .sidebar{
+  z-index: 1;
+}
+
+.hero{
+  min-height: 100dvh;
+}
+
+@supports (-webkit-touch-callout: none){
+  .hero{ min-height: -webkit-fill-available; }
+}
+
+@supports (padding: max(0px)){
+  .sidebar{
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 10000;
+  }
+}
+
+@media (max-width: 380px){
+  .timeline-badge{
+    position: static;        /* falls into normal flow below the h3 */
+    display: inline-block;
+    margin-top: .4rem;
+  }
+  .timeline-content h3{
+    padding-right: 0;
   }
 }
