@@ -4,7 +4,7 @@ import { FaFilePdf, FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedin, FaGraduati
 // Data structured from your resume PDF
 const resumeData = {
   name: "Srikar Amirneni",
-  title: "Full-Stack Developer • Cybersecurity Enthusiast • AI Engineer",
+  title: "Full-Stack Developer • Cybersecurity • AI ",
   contact: {
   email: "samirnen@calpoly.edu",
   location: "San Luis Obispo, CA",
