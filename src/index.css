@@ -1495,7 +1495,7 @@ section:last-of-type {
 
 /* 9) Ensure sections don’t feel cramped on narrow screens */
 @media (max-width: 480px){
-  section{ padding: 28px 14px !important; }
+  section{ padding: 28px 28px !important; }
 }
 
 /* 10) Safety: prevent oversized box-shadows/transforms causing layout shift */
@@ -1563,6 +1563,7 @@ main, .main-content, .hero, section, .sidebar{
     scroll-padding-bottom: calc(env(safe-area-inset-bottom) + var(--mobile-nav-h) + 12px);
   }
 
+
   /* Extra bottom padding in the hero to clear Safari toolbar + bottom nav */
   .hero,
   .hero-content{
@@ -1585,6 +1586,14 @@ main, .main-content, .hero, section, .sidebar{
     line-height: 1.35;
     min-width: 60ch; /* ensure it doesn't shrink too small */
     margin-bottom: 16px;
+  }
+
+  .skill-cloud-container {
+    /* A smaller, fixed height for mobile */
+    height: 300px; 
+
+    /* The margin-bottom should now work correctly */
+    margin-bottom: 80px; 
   }
 }
 

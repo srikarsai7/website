@@ -21,8 +21,7 @@ const SkillCloud = ({ skills }) => {
     <div className="skill-cloud-container">
       <TagSphere
         tags={coloredTags}
-        radius={250}
-        fullWidth
+        radius={window.innerWidth < 768 ? 200 : 250}
         fullHeight
         grayscale={false}
         blur={false}
