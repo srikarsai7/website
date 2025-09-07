@@ -6,7 +6,7 @@ const projectsData = [
     title: "Ice Breaker",
     imgSrc: "images/icebreaker.png",
     description:
-      "An AI-powered app that finds a person's LinkedIn profile and generates a concise summary, interesting facts, and creative conversation starters. Built with Python, Flask, LangChain, and React.",
+      "An AI-powered app that finds a person's LinkedIn profile and generates a concise summary, interesting facts, and creative conversation starters. Built with Python, Flask, LangChain.",
     tags: ["Python", "LangChain", "Flask", "Travily", "AI"],
     codeLink: "https://github.com/srikarsai7/ice_breaker",
     demoLink: "https://ice-breaker-aqmo.onrender.com/"
