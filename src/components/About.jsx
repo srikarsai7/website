@@ -48,7 +48,7 @@ I’m a CS student at Cal Poly focused on building usable, reliable software. Re
             <div className="strip" role="listitem"><span className="k k--ghost">Ask</span> “What’s a project you worked on that changed how you think?”</div>
 
           <div className="hero__cta">
-            <a className="btn btn-primary" href="/Srikar,Amirneni-Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
+            <a className="btn btn-primary" href="/Srikar_Amirneni-Resume.pdf" target="_blank" rel="noopener noreferrer">View Resume</a>
             <a className="btn btn-secondary" href="mailto:samirnen@calpoly.edu">Contact</a>
           </div>
 
